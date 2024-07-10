@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Kumbh_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header/header";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const kumbh_sans = Kumbh_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Docsffre app",
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body className={kumbh_sans.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

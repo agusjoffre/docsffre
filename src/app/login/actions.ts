@@ -24,3 +24,10 @@ export const OAuthSignIn = async (provider: Provider) => {
 
   return redirect(data.url);
 };
+
+export const OAuthSignOut = async () => {
+  const supabase = createClient();
+  const { error } = await supabase.auth.signOut();
+  if (error) return redirect(`/login?message=${error.message}`);
+  return redirect("/");
+};
